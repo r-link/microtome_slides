@@ -1,0 +1,14 @@
+---
+title: "Processing microtome slides with GIMP and ImageJ"
+author: "Roman M. Link"
+date: "October 2019"
+output: 
+  word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r child = 'tutorial.Rmd'}
+```
