@@ -53,9 +53,7 @@ screenshots in the example, the `CODE` is `CRI_3_010`.
     as `CODE_GI_01.jpg` (export as: *Ctrl + Shift + E*) using the
     maximal quality setting - the GI in the name codes the GIMP step
 
-  - Zoom in to focus on the pith (*+/-* or *Ctrl + mouse wheel*), select
-    the Polygon Lasso tool (*F*) and cut out the pith
-    ![](figures/step5.png)
+![](figures/step5.png)
 
   - If the analyzed cross-section is very large, the vessel size is very
     small compared to the sample area and/or there are areas with
@@ -65,7 +63,11 @@ screenshots in the example, the `CODE` is `CRI_3_010`.
     entire cross-section to save time. In this case, be careful to
     select a representative section of the sample (i.e., avoid tension
     and compression wood). The best is to trace the ray parenchyma to
-    avoid including incomplete vessels. ![](figures/step6.png)
+    avoid including incomplete vessels. It is usually sufficient to have
+    a subsample of around 300-500 vessels; with 1000+ you are definitely
+    on the safe side.
+
+![](figures/step6.png)
 
   - if you decide to work with a subsection of the original xylem area,
     save as `CODE_GI_cropped_01.jpg` (export as: *Ctrl + Shift + E*) and
@@ -177,9 +179,13 @@ screenshots in the example, the `CODE` is `CRI_3_010`.
 ![](figures/step14.png)
 
   - Now, zoom out and measure the area of the sample
-      - use the Wand tool to click into the black area around the sample
-        - a portion of the black area will now be selected (highlighted
-        by a barely visible yellow outline)
+      - use the **Wand** tool to click into the black area around the
+        sample - a portion of the black area will now be \[hopefully\]
+        selected (highlighted by a barely visible yellow outline)
+        \[there are some bugs with the **Wand** tool. If it does not
+        select anything, it sometimes helps if you click into different
+        areas of the image. The lower left seems to work best (don’t
+        even ask…)\]
       - measure the size of the selected area using *Ctrl + M* (or
         **Analyze ➜ Measure** if you prefer point and click)
       - if you work with a full cross-section and removed the pith, do

@@ -26,10 +26,10 @@ Note that the term `CODE` in this document is a placeholder that has to be repla
 
 * Export the new picture (full xylem area with cut-out bark and pith) as `CODE_GI_01.jpg` (export as: _Ctrl + Shift + E_) using the maximal quality setting - the GI in the name codes the GIMP step
 
-* Zoom in to focus on the pith (_+/-_ or _Ctrl + mouse wheel_), select the Polygon Lasso tool (_F_) and cut out the pith
 ![](figures/step5.png)
 
-* If the analyzed cross-section is very large, the vessel size is very small compared to the sample area and/or there are areas with severely damaged vessels, it may be advantageous to select only a wedge of the original picture with the Lasso tool (_F_) and insert it to a new file (_Ctrl + Shift + V_) instead of analyzing the entire cross-section to save time. In this case, be careful to select a representative section of the sample (i.e., avoid tension and compression wood). The best is to trace the ray parenchyma to avoid including incomplete vessels.
+* If the analyzed cross-section is very large, the vessel size is very small compared to the sample area and/or there are areas with severely damaged vessels, it may be advantageous to select only a wedge of the original picture with the Lasso tool (_F_) and insert it to a new file (_Ctrl + Shift + V_) instead of analyzing the entire cross-section to save time. In this case, be careful to select a representative section of the sample (i.e., avoid tension and compression wood). The best is to trace the ray parenchyma to avoid including incomplete vessels. It is usually sufficient to have a subsample of around 300-500 vessels; with 1000+ you are definitely on the safe side.
+
 ![](figures/step6.png)
 
 * if you decide to work with a subsection of the original xylem area, save as `CODE_GI_cropped_01.jpg` (export as: _Ctrl + Shift + E_) and perform the following steps with this file instead of the original file.
@@ -87,7 +87,7 @@ Note that the term `CODE` in this document is a placeholder that has to be repla
 ![](figures/step14.png)
 
 * Now, zoom out and measure the area of the sample
-    * use the Wand tool to click into the black area around the sample - a portion of the black area will now be selected (highlighted by a barely visible yellow outline)
+    * use the __Wand__ tool to click into the black area around the sample - a portion of the black area will now be [hopefully] selected (highlighted by a barely visible yellow outline) [there are some bugs with the __Wand__ tool. If it does not select anything, it sometimes helps if you click into different areas of the image. The lower left seems to work best (don't even ask...)]
     * measure the size of the selected area using _Ctrl + M_ (or __Analyze ➜ Measure__ if you prefer point and click)
     * if you work with a full cross-section and removed the pith, do not forget to measure this region!
     * if the surrounding area is separated in several portions, repeat the previous steps for all of them
