@@ -306,8 +306,10 @@ screenshots in the example, the `CODE` is `CRI_3_010`.
 
   - restore the visibility of **org** and deselect all by pressing *Ctrl
     + Shift + A*
+
   - use the Layers (Ebenen) panel to change the mode (Modus) and opacity
     (Deckkraft) of the three layers to the following values:
+    
       - **org** Mode: Darken only (Nur Abdunkeln); opacity: 80%
       - **out** Mode: Difference (Unterschied); opacity: 80-90%
       - **green** Mode: Lighten only (Nur Aufhellen); opacity: 100%
@@ -403,7 +405,7 @@ screenshots in the example, the `CODE` is `CRI_3_010`.
 
 # Final analysis in ImageJ
 
-  - open the new threshold file in GIMP (make sure that the scale is
+  - open the new threshold file in ImageJ (make sure that the scale is
     still set correctly by looking at the units in the upper left corner
     - if not, follow the steps in Chapter 2. to reset it)
 

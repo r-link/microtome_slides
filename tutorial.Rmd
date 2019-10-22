@@ -161,6 +161,7 @@ Note that the term `CODE` in this document is a placeholder that has to be repla
 ![](figures/step26.png)
 
 * restore the visibility of __org__ and deselect all by pressing _Ctrl + Shift + A_
+
 * use the Layers (Ebenen) panel to change the mode (Modus) and opacity (Deckkraft) of the three layers to the following values: 
     * __org__  Mode: Darken only (Nur Abdunkeln); opacity: 80%
     * __out__ Mode: Difference (Unterschied); opacity: 80-90%
@@ -208,7 +209,7 @@ Note that the term `CODE` in this document is a placeholder that has to be repla
 
 
 # Final analysis in ImageJ
-* open the new threshold file in GIMP (make sure that the scale is still set correctly by looking at the units in the upper left corner - if not, follow the steps in Chapter 2. to reset it)
+* open the new threshold file in ImageJ (make sure that the scale is still set correctly by looking at the units in the upper left corner - if not, follow the steps in Chapter 2. to reset it)
 
 * add a threshold by pressing _Ctrl + Shift + T_ (or __Image ➜ Adjust ➜ Threshold__)
     * the threshold value does not matter since the image is only black and white 
