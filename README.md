@@ -120,7 +120,7 @@ screenshots in the example, the `CODE` is `CRI_3_010`.
   - open ImageJ.
   - make sure that the options for analyzing threshold images are
     correctly set. Go to **Process ➜ Binary ➜ Options** and make sure
-    that the box \_\_Black background is not marked. This is really
+    that the box **Black background** is not marked. This is really
     important because if this box is marked, the particle analysis will
     not work properly and you will struggle to find out why\!
 

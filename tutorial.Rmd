@@ -56,7 +56,7 @@ Note that the term `CODE` in this document is a placeholder that has to be repla
 
 # Preliminary analysis in ImageJ
 * open ImageJ.
-* make sure that the options for analyzing threshold images are correctly set. Go to __Process ➜ Binary ➜ Options__ and make sure that the box __Black background is not marked. This is really important because if this box is marked, the particle analysis will not work properly and you will struggle to find out why!
+* make sure that the options for analyzing threshold images are correctly set. Go to __Process ➜ Binary ➜ Options__ and make sure that the box __Black background__ is not marked. This is really important because if this box is marked, the particle analysis will not work properly and you will struggle to find out why!
 
 ![](figures/binary_options.png)
 
