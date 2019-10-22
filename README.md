@@ -118,6 +118,14 @@ screenshots in the example, the `CODE` is `CRI_3_010`.
 # Preliminary analysis in ImageJ
 
   - open ImageJ.
+  - make sure that the options for analyzing threshold images are
+    correctly set. Go to **Process ➜ Binary ➜ Options** and make sure
+    that the box \_\_Black background is not marked. This is really
+    important because if this box is marked, the particle analysis will
+    not work properly and you will struggle to find out why\!
+
+![](figures/binary_options.png)
+
   - open the original image with the scale bar (`CODE.jpg`) with ImageJ
     (either by the File dialog or by dragging and dropping onto the
     ImageJ window).

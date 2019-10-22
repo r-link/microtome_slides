@@ -56,6 +56,10 @@ Note that the term `CODE` in this document is a placeholder that has to be repla
 
 # Preliminary analysis in ImageJ
 * open ImageJ.
+* make sure that the options for analyzing threshold images are correctly set. Go to __Process ➜ Binary ➜ Options__ and make sure that the box __Black background is not marked. This is really important because if this box is marked, the particle analysis will not work properly and you will struggle to find out why!
+
+![](figures/binary_options.png)
+
 * open the original image with the scale bar (`CODE.jpg`) with ImageJ (either by the File dialog or by dragging and dropping onto the ImageJ window).
 * zoom in (_Strg + mouse wheel_) and move the image with the hand tool (or by holding & clicking while pressing the space bar) until the scale bar fills the entire screen.
 * use the __Straight Line__ tool to draw a line on top of the scale bar that goes from one endpoint to the other (it can be helpful to first roughly position it and then zoom in more. The endpoints of the __Straight Line__ can be repositioned by holding and clicking.  The zoom function in ImageJ is atrocious, so do not lose hope when the line disappears - it normally shows up again when you scroll a bit or change the degree of magnification)
