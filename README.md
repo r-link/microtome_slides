@@ -18,9 +18,9 @@ beyond the scope of this tutorial. However, note that a list of useful
 GIMP shortcuts can be found here:
 (<https://www.gimpusers.com/gimp/hotkeys>).
 
-We are aware that our methods is by no means the perfect way of
-analyzing wood anatomical slides, and there may be less time consuming
-ones. However, it ensures comparability to our old datasets obtained by
+We are aware that our method is by no means the perfect way of analyzing
+wood anatomical slides, and there may be less time consuming ones.
+However, it ensures comparability to our old datasets obtained by
 (almost) the same method, and has the advantage of allowing for an
 accurate assessment of classification errors during all steps of the
 analysis.
@@ -36,9 +36,9 @@ All ImageJ results table can be saved either in ‘Comma Separated Value’
 with a `.xls` extension, but actually just a plain text format). In
 either case, the output is optimized for US/UK locales, which means that
 points are used as a decimal separator. In order to process these files
-without bigger trouble, it is important to make sure that the
-system-wide decimal separator is correctly set before starting the
-analysis.
+on German systems without compatibility issues, it is important to make
+sure that the system-wide decimal separator is correctly set before
+starting the analysis.
 
 In German Windows 10, the option to change the decimal separator is well
 hidden:
@@ -52,7 +52,7 @@ für Zifferngruppierung**) to be a comma instead of the point symbol
 used in Germany.
 
 If you do not want to change your system settings, you can alternatively
-export everything in a `.csv` format and use Excels **Daten ➜ Text in
+export everything in a `.csv` format and use Excel’s **Daten ➜ Text in
 Spalten** menu to manually set field delimitor and decimal separator.
 
 # Preparation in GIMP
@@ -77,14 +77,15 @@ Spalten** menu to manually set field delimitor and decimal separator.
 
   - Export the new picture (full xylem area with cut-out bark and pith)
     as `CODE_GI_01.jpg` (export as: *Ctrl + Shift + E*) using the
-    maximal quality setting - the GI in the name codes the GIMP step
+    maximal quality setting - the GI in the name means the file has been
+    processed in GIMP.
 
 ![](figures/step5.png)
 
-  - If the analyzed cross-section is very large, the vessel size is very
-    small compared to the sample area and/or there are areas with
-    severely damaged vessels, it may be advantageous to select only a
-    wedge of the original picture with the Lasso tool (*F*) and insert
+  - Ifa) the analyzed cross-section is very large, b) the vessel size is
+    very small compared to the sample area and/or c) there are areas
+    with severely damaged vessels, it may be advantageous to select only
+    a wedge of the original picture with the Lasso tool (*F*) and insert
     it to a new file (*Ctrl + Shift + V*) instead of analyzing the
     entire cross-section to save time. In this case, be careful to
     select a representative section of the sample (i.e., avoid tension
@@ -94,9 +95,9 @@ Spalten** menu to manually set field delimitor and decimal separator.
     1000+ to be on the safe side.
 
   - If you created the new file by *Ctrl + Shift + V*, the size is
-    automatically scaled to the selection, so do this instead of
-    manually creating a new file to reduce file size (which improves
-    computing time).
+    automatically cropped to the size the selected section, so do this
+    instead of manually creating a new file to reduce file size (which
+    improves computing time).
 
 ![](figures/step6.png)
 
@@ -126,11 +127,10 @@ Spalten** menu to manually set field delimitor and decimal separator.
 ![](figures/step7.png)
 
   - If your sample is surrounded by transparency (indicated by a
-    checkerboard pattern) instead of white space, make sure the
+    checkerboard pattern) instead of a white background, make sure the
     background color is set to white and right click on the
     corresponding layer and remove the alpha channel (**Alphakanal
-    entfernen**) - if you do not do this, the color decomposition may
-    not work properly.
+    entfernen**). Now the analyzed image should be surrounded by white.
 
   - save the image in GIMP’s `.xcf` format as `CODE_GI.xcf` or
     `CODE_GI_cropped.xcf`. This file will be used later for the
@@ -140,7 +140,9 @@ Spalten** menu to manually set field delimitor and decimal separator.
   - decompose image into its RGB components (German: **Farben ➜
     Komponenten ➜ Zerlegen**, English: **Colors ➜ Components ➜
     Decompose**) - this creates a new image that separates the original
-    image into its red, green and blue channel
+    image into its red, green and blue channel (if this step changes the
+    shape of the wood section and suddenly cut-out areas reappear, you
+    forgot to delete the alpha channel).
 
 ![](figures/step8.png)
 
@@ -269,16 +271,17 @@ Spalten** menu to manually set field delimitor and decimal separator.
   - You can specify the following conditions each particle has to meet
     to be included into the analysis
       - **Size** (µm²): range of area for the included vessels (the
-        minimum is normally the more important value becuase it helps to
+        minimum is normally the more important value because it helps to
         exclude tracheids. For temperate species, a minimum of 100-300
-        is normally reasonable. The maximum value can usually be left at
-        *Infinity* unless e.g. there are large resin chanels you want to
-        exclude.)
-      - **Circularity**: The roundness of the vessels (from 0: not round
-        at all to 1: perfect circles. This can be helpful to exclude
-        brick-shaped parenchyma cells if they are in the same size range
-        as vessels, but may also lead to an exclusion of damaged
-        vessels. Values of 0.3/0.4-1.0 are usually reasonable.)
+        is normally reasonable (for conifers and latewood vessels of
+        ring-porous species, you will need less). The maximum value can
+        usually be left at *Infinity* unless e.g. there are large resin
+        chanels you want to exclude.)
+      - **Circularity**: The roundness of the vessels (from 0: *not
+        round at all* to 1: *perfect circles*. This can be helpful to
+        exclude brick-shaped parenchyma cells if they are in the same
+        size range as vessels, but may also lead to an exclusion of
+        damaged vessels. Values of 0.3/0.4-1.0 are usually reasonable.)
   - before clicking **OK**, make sure to select **Show: Outlines**, and
     mark **Display Results**, **Clear Results** and **Include Holes**.
 
@@ -287,8 +290,8 @@ Spalten** menu to manually set field delimitor and decimal separator.
   - Save the resulting outlines as a `.jpg` document, specifying the
     selected **Area** and **Circularity** values in the name
     (e.g.`CODE_GI_02_TH_02_Outlines_300,0.3.jpg` or
-    `CODE_GI_cropped_02_TH_02_Outlines_300,0.3.jpg`) using the File ➜
-    Save As ➜ Jpeg option in the main menu of ImageJ (not the newly
+    `CODE_GI_cropped_02_TH_02_Outlines_300,0.3.jpg`) using the **File ➜
+    Save As ➜ Jpeg** option in the main menu of ImageJ (not the newly
     opened **Results** window\!). Make sure the right image window is
     selected when saving.
 
@@ -390,8 +393,8 @@ Spalten** menu to manually set field delimitor and decimal separator.
     `out1`, `out2` etc. (or, in the worst case, set a new threshold)
     than trying to fix all the errors by hand
   - if you are confident that you have found the right ImageJ settings,
-    you can start looking for classification errors that need correction
-    - see the following examples:
+    you can start looking for classification errors that need
+    correction. See the following examples:
 
 ![](figures/step28.png)
 

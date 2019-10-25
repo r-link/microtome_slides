@@ -3,12 +3,12 @@
 # Introduction {-} 
 This is a step-by-step tutorial for the pre-processing and analysis of wood anatomical microtome slides via semi-automatic image classification. The methodology is based on our original tutorials that were using [Photoshop](https://www.youtube.com/watch?v=dQw4w9WgXcQ) and [ImageJ](https://imagej.nih.gov/ij/). Due to the financial pressure posed new subscription-based payment system introduced by Adobe, we felt compelled to switch to a fully open-source solution, which is why our analysis is now using [GIMP](https://www.gimp.org/) for the steps previously done in Photoshop. Both GIMP and ImageJ are very powerful software packages, and a full introduction to their functionalities is beyond the scope of this tutorial. However, note that a list of useful GIMP shortcuts can be found here: (https://www.gimpusers.com/gimp/hotkeys).
 
-We are aware that our methods is by no means the perfect way of analyzing wood anatomical slides, and there may be less time consuming ones. However, it ensures comparability to our old datasets obtained by (almost) the same method, and has the advantage of allowing for an accurate assessment of classification errors during all steps of the analysis.
+We are aware that our method is by no means the perfect way of analyzing wood anatomical slides, and there may be less time consuming ones. However, it ensures comparability to our old datasets obtained by (almost) the same method, and has the advantage of allowing for an accurate assessment of classification errors during all steps of the analysis.
 
 Note that the term `CODE` in this document is a placeholder that has to be replaced by the unique ID of sample you are working with! In the screenshots in the example, the `CODE` is `CRI_3_010`.
 
 # Important note {-}
-All ImageJ results table can be saved either in 'Comma Separated Value' (`.csv`) or whitespace/tabstop separated format (generated when saving with a `.xls` extension, but actually just a plain text format). In either case, the output is optimized for US/UK locales, which means that points are used as a decimal separator. In order to process these files without bigger trouble, it is important to make sure that the system-wide decimal separator is correctly set before starting the analysis.
+All ImageJ results table can be saved either in 'Comma Separated Value' (`.csv`) or whitespace/tabstop separated format (generated when saving with a `.xls` extension, but actually just a plain text format). In either case, the output is optimized for US/UK locales, which means that points are used as a decimal separator. In order to process these files on German systems without compatibility issues, it is important to make sure that the system-wide decimal separator is correctly set before starting the analysis.
 
 In German Windows 10, the option to change the decimal separator is well hidden:
 
@@ -16,7 +16,7 @@ __Start Menu ➜ Windows-System ➜ Systemsteuerung ➜ Zeit und Region ➜  Reg
 
 To avoid data compatibility problems, make sure the decimal separator is set to ".". In this case, you will want the grouping symbol (__Symbol für Zifferngruppierung__) to be a comma instead of the point symbol used in Germany.
 
-If you do not want to change your system settings, you can alternatively export everything in a `.csv` format and use Excels __Daten ➜ Text in Spalten__ menu to manually set field delimitor and decimal separator.
+If you do not want to change your system settings, you can alternatively export everything in a `.csv` format and use Excel's __Daten ➜ Text in Spalten__ menu to manually set field delimitor and decimal separator.
 
 # Preparation in GIMP
 * Open original image `CODE.jpg`
@@ -35,14 +35,14 @@ If you do not want to change your system settings, you can alternatively export 
 ![](figures/step4.png)
 
 
-* Export the new picture (full xylem area with cut-out bark and pith) as `CODE_GI_01.jpg` (export as: _Ctrl + Shift + E_) using the maximal quality setting - the GI in the name codes the GIMP step
+* Export the new picture (full xylem area with cut-out bark and pith) as `CODE_GI_01.jpg` (export as: _Ctrl + Shift + E_) using the maximal quality setting - the GI in the name means the file has been processed in GIMP.
 
 ![](figures/step5.png)
 
-* If the analyzed cross-section is very large, the vessel size is very small compared to the sample area and/or there are areas with severely damaged vessels, it may be advantageous to select only a wedge of the original picture with the Lasso tool (_F_) and insert it to a new file (_Ctrl + Shift + V_) instead of analyzing the entire cross-section to save time. 
+* Ifa) the analyzed cross-section is very large, b) the vessel size is very small compared to the sample area and/or c) there are areas with severely damaged vessels, it may be advantageous to select only a wedge of the original picture with the Lasso tool (_F_) and insert it to a new file (_Ctrl + Shift + V_) instead of analyzing the entire cross-section to save time. 
 In this case, be careful to select a representative section of the sample (i.e., avoid tension and compression wood). The best is to trace the ray parenchyma to avoid including incomplete vessels. It is usually sufficient to have a subsample of around 300-500 vessels, but it is preferable to have 1000+ to be on the safe side.
 
-* If you created the new file by _Ctrl + Shift + V_, the size is automatically scaled to the selection, so do this instead of manually creating a new file to reduce file size (which improves computing time). 
+* If you created the new file by _Ctrl + Shift + V_, the size is automatically cropped to the size the selected section, so do this instead of manually creating a new file to reduce file size (which improves computing time). 
 
 ![](figures/step6.png)
 
@@ -55,11 +55,11 @@ In this case, be careful to select a representative section of the sample (i.e.,
 
 ![](figures/step7.png)
 
-* If your sample is surrounded by transparency (indicated by a checkerboard pattern) instead of white space, make sure the background color is set to white and right click on the corresponding layer and remove the alpha channel (__Alphakanal entfernen__) - if you do not do this, the color decomposition may not work properly.
+* If your sample is surrounded by transparency (indicated by a checkerboard pattern) instead of a white background, make sure the background color is set to white and right click on the corresponding layer and remove the alpha channel (__Alphakanal entfernen__). Now the analyzed image should be surrounded by white.
 
 * save the image in GIMP's `.xcf` format as `CODE_GI.xcf` or `CODE_GI_cropped.xcf`. This file will be used later for the different post-processing steps necessary to improve the initial image classification. 
 
-* decompose image into its RGB components (German: __Farben ➜ Komponenten ➜ Zerlegen__, English: __Colors ➜ Components ➜ Decompose__) - this creates a new image that separates the original image into its red, green and blue channel
+* decompose image into its RGB components (German: __Farben ➜ Komponenten ➜ Zerlegen__, English: __Colors ➜ Components ➜ Decompose__) - this creates a new image that separates the original image into its red, green and blue channel (if this step changes the shape of the wood section and suddenly cut-out areas reappear, you forgot to delete the alpha channel).
 
 ![](figures/step8.png)
 
@@ -131,14 +131,14 @@ In this case, be careful to select a representative section of the sample (i.e.,
 
 * Open the __Analyze ➜ Analyze Particles__ dialog
 * You can specify the following conditions each particle has to meet to be included into the analysis
-    * __Size__ (µm²): range of area for the included vessels (the minimum is normally the more important value becuase it helps to exclude tracheids. For temperate species, a minimum of 100-300 is normally reasonable. The maximum value can usually be left at _Infinity_ unless e.g. there are large resin chanels you want to exclude.)
-    * __Circularity__: The roundness of the vessels (from 0: not round at all to 1: perfect circles. This can be helpful to exclude brick-shaped parenchyma cells if they are in the same size range as vessels, but may also lead to an exclusion of damaged vessels. Values of 0.3/0.4-1.0 are usually reasonable.)
+    * __Size__ (µm²): range of area for the included vessels (the minimum is normally the more important value because it helps to exclude tracheids. For temperate species, a minimum of 100-300 is normally reasonable (for conifers and latewood vessels of ring-porous species, you will need less). The maximum value can usually be left at _Infinity_ unless e.g. there are large resin chanels you want to exclude.)
+    * __Circularity__: The roundness of the vessels (from 0: _not round at all_ to 1: _perfect circles_. This can be helpful to exclude brick-shaped parenchyma cells if they are in the same size range as vessels, but may also lead to an exclusion of damaged vessels. Values of 0.3/0.4-1.0 are usually reasonable.)
 * before clicking __OK__, make sure to select __Show: Outlines__, and mark __Display Results__, __Clear Results__ and __Include Holes__.
 
 ![](figures/step19.png)
 
 
-* Save the resulting outlines as a `.jpg` document, specifying the selected __Area__ and __Circularity__ values in the name (e.g.`CODE_GI_02_TH_02_Outlines_300,0.3.jpg` or `CODE_GI_cropped_02_TH_02_Outlines_300,0.3.jpg`) using the File ➜ Save As ➜ Jpeg option in the main menu of ImageJ (not the newly opened __Results__ window!). Make sure the right image window is selected when saving.
+* Save the resulting outlines as a `.jpg` document, specifying the selected __Area__ and __Circularity__ values in the name (e.g.`CODE_GI_02_TH_02_Outlines_300,0.3.jpg` or `CODE_GI_cropped_02_TH_02_Outlines_300,0.3.jpg`) using the __File ➜ Save As ➜ Jpeg__ option in the main menu of ImageJ (not the newly opened __Results__ window!). Make sure the right image window is selected when saving.
 
 ![](figures/step20.png)
 
@@ -176,7 +176,7 @@ In this case, be careful to select a representative section of the sample (i.e.,
 
 ![](figures/step26.png)
 
-* restore the visibility of __org__ and deselect all by pressing _Ctrl + Shift + A_
+* restore the visibility of __org__ and deselect all by pressing *Ctrl + Shift + A*
 
 * use the Layers (Ebenen) panel to change the mode (Modus) and opacity (Deckkraft) of the three layers to the following values: 
     * __org__  Mode: Darken only (Nur Abdunkeln); opacity: 80%
@@ -197,7 +197,7 @@ In this case, be careful to select a representative section of the sample (i.e.,
     * If consistently, all vessels are too small or too big compared to the original image, consider changing the _threshold_ value
     
 * a certain amount of missclassification is unavoidable, but if there are obvious patterns of false negatives/positives it is better to re-run the classification with different parameters and create a new outline image that can be copied into the `.xcf` file as a new layer `out1`, `out2` etc. (or, in the worst case, set a new threshold) than trying to fix all the errors by hand
-* if you are confident that you have found the right ImageJ settings, you can start looking for classification errors that need correction - see the following examples:
+* if you are confident that you have found the right ImageJ settings, you can start looking for classification errors that need correction. See the following examples:
 
 ![](figures/step28.png)
 
