@@ -29,7 +29,7 @@ Note that the term `CODE` in this document is a placeholder that has to
 be replaced by the unique ID of sample you are working with\! In the
 screenshots in the example, the `CODE` is `CRI_3_010`.
 
-# Preparation
+# Important note
 
 All ImageJ results table can be saved either in ‘Comma Separated Value’
 (`.csv`) or whitespace/tabstop separated format (generated when saving

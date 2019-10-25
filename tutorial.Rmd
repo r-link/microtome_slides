@@ -7,7 +7,7 @@ We are aware that our methods is by no means the perfect way of analyzing wood a
 
 Note that the term `CODE` in this document is a placeholder that has to be replaced by the unique ID of sample you are working with! In the screenshots in the example, the `CODE` is `CRI_3_010`.
 
-# Preparation
+# Important note {-}
 All ImageJ results table can be saved either in 'Comma Separated Value' (`.csv`) or whitespace/tabstop separated format (generated when saving with a `.xls` extension, but actually just a plain text format). In either case, the output is optimized for US/UK locales, which means that points are used as a decimal separator. In order to process these files without bigger trouble, it is important to make sure that the system-wide decimal separator is correctly set before starting the analysis.
 
 In German Windows 10, the option to change the decimal separator is well hidden:
