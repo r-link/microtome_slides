@@ -29,6 +29,32 @@ Note that the term `CODE` in this document is a placeholder that has to
 be replaced by the unique ID of sample you are working with\! In the
 screenshots in the example, the `CODE` is `CRI_3_010`.
 
+# Preparation
+
+All ImageJ results table can be saved either in ‘Comma Separated Value’
+(`.csv`) or whitespace/tabstop separated format (generated when saving
+with a `.xls` extension, but actually just a plain text format). In
+either case, the output is optimized for US/UK locales, which means that
+points are used as a decimal separator. In order to process these files
+without bigger trouble, it is important to make sure that the
+system-wide decimal separator is correctly set before starting the
+analysis.
+
+In German Windows 10, the option to change the decimal separator is well
+hidden:
+
+**Start Menu ➜ Windows-System ➜ Systemsteuerung ➜ Zeit und Region ➜
+Region ➜ Formate ➜ Weitere Einstellungen ➜ Dezimaltrennzeichen**
+
+To avoid data compatibility problems, make sure the decimal separator is
+set to “.”. In this case, you will want the grouping symbol (**Symbol
+für Zifferngruppierung**) to be a comma instead of the point symbol
+used in Germany.
+
+If you do not want to change your system settings, you can alternatively
+export everything in a `.csv` format and use Excels **Daten ➜ Text in
+Spalten** menu to manually set field delimitor and decimal separator.
+
 # Preparation in GIMP
 
   - Open original image `CODE.jpg`
@@ -46,8 +72,8 @@ screenshots in the example, the `CODE` is `CRI_3_010`.
     ![](figures/step3.png)
 
   - Zoom in to focus on the pith (*+/-* or *Ctrl + mouse wheel*), select
-    the Polygon Lasso tool (*F*) and cut out the pith
-    ![](figures/step4.png)
+    the Polygon Lasso tool (*F*) and cut out the pith (*Ctrl + X* or
+    *Del*) ![](figures/step4.png)
 
   - Export the new picture (full xylem area with cut-out bark and pith)
     as `CODE_GI_01.jpg` (export as: *Ctrl + Shift + E*) using the
@@ -64,8 +90,13 @@ screenshots in the example, the `CODE` is `CRI_3_010`.
     select a representative section of the sample (i.e., avoid tension
     and compression wood). The best is to trace the ray parenchyma to
     avoid including incomplete vessels. It is usually sufficient to have
-    a subsample of around 300-500 vessels; with 1000+ you are definitely
-    on the safe side.
+    a subsample of around 300-500 vessels, but it is preferable to have
+    1000+ to be on the safe side.
+
+  - If you created the new file by *Ctrl + Shift + V*, the size is
+    automatically scaled to the selection, so do this instead of
+    manually creating a new file to reduce file size (which improves
+    computing time).
 
 ![](figures/step6.png)
 
@@ -93,6 +124,13 @@ screenshots in the example, the `CODE` is `CRI_3_010`.
         have to be perfect.
 
 ![](figures/step7.png)
+
+  - If your sample is surrounded by transparency (indicated by a
+    checkerboard pattern) instead of white space, make sure the
+    background color is set to white and right click on the
+    corresponding layer and remove the alpha channel (**Alphakanal
+    entfernen**) - if you do not do this, the color decomposition may
+    not work properly.
 
   - save the image in GIMP’s `.xcf` format as `CODE_GI.xcf` or
     `CODE_GI_cropped.xcf`. This file will be used later for the
