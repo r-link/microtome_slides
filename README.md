@@ -471,9 +471,13 @@ Spalten** menu to manually set field delimitor and decimal separator.
     in the main window)
 
   - save the results as
-    `CODE_GI_02_TH_02_edit_Outlines_300,0.3_Results.xls` or
-    `CODE_GI_cropped_02_TH_02_edit_Outlines_300,0.3_Results.xls` (File ➜
-    Save as in the Results window)
+    `CODE_GI_02_TH_02_edit_Outlines_300_0,3_Results.xls` or
+    `CODE_GI_cropped_02_TH_02_edit_Outlines_300_0,3_Results.xls` (File ➜
+    Save as in the Results window). **Be careful not to have two dots
+    (“.”) in the file name or it will not be possible to save as a
+    .csv file\! The screenshots in the tutorial still contain filenames
+    with two dots because we just learned about this bug pretty
+    recently. Please avoid this mistake\!**
 
 ![](figures/step32.png)
 
